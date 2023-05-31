@@ -1,0 +1,135 @@
+/***************************************/
+/*Links        */
+/***************************************/
+
+/* Dividers & Comments */
+/* Hide URLs in Edit mode - source death_au @ https://forum.obsidian.md/t/hide-or-truncate-urls-in-editor-using-css/359/2*/
+div:not(.CodeMirror-activeline) > .CodeMirror-line .cm-string.cm-url:not(.cm-formatting) {
+  font-size: 0;
+}
+div:not(.CodeMirror-activeline) > .CodeMirror-line .cm-string.cm-url:not(.cm-formatting)::after {
+  content: '🔗';
+  font-size: 1rem;
+}
+
+/* Add WWW icon to external URLs */
+.theme-dark .external-link {
+  font-size: 1.01em!important;
+  font-weight:500;
+  background-position: left!important;
+  background-repeat: no-repeat!important;
+  background-image: linear-gradient(transparent, transparent), url(https://i.imgur.com/As68C4R.png)!important;
+  background-size: 30px!important;
+  padding:10px 2px 10px 35px!important;
+  background-position-y: 0px!important;
+  cursor: pointer!important;
+}
+
+.theme-light .external-link {
+  color:chocolate !important;
+  font-size: 1.01em!important;
+  font-weight:500;
+  background-position: left!important;
+  background-repeat: no-repeat!important;
+  background-image: linear-gradient(transparent, transparent), url(https://i.imgur.com/As68C4R.png)!important;
+  background-size: 30px!important;
+  padding:10px 2px 10px 35px!important;
+  background-position-y: 0px!important;
+  cursor: pointer!important;
+}
+
+
+/* Internal no underline */
+.cm-hmd-internal-link .cm-underline, .internal-link {
+text-decoration: initial !important
+}
+
+/* Internal links */
+/* change colour in Preview */
+a.internal-link {
+
+}
+
+/* change colour in Edit */
+.cm-s-obsidian span.cm-link,
+.cm-s-obsidian span.cm-url { /* PB added */
+color:#ff82b2;
+}
+
+/* change intensity of unresolved links */
+.markdown-preview-view .internal-link.is-unresolved {
+opacity: 0.8;
+}
+
+.cm-s-obsidian span.cm-hmd-internal-link {
+
+}
+
+/* External links - URLs */
+/* change colour in Preview */
+a.external-link {
+color: #ff82b2;
+font-weight: 500;
+}
+
+/* view URL in popup - courtesy of narand 
+a.external-link {
+position: relative;
+}
+
+a.external-link:before {
+position: absolute;
+padding: 0px 8px 0px 8px;
+color: ;
+background-color: var(--background-primary-alt);
+border-radius: 3px;
+font-size: 80%;
+display: none;
+z-index: 1000;
+top: 1.8em;
+content: attr(href)
+}
+
+a.external-link:hover:before {
+display: inline; 
+} */
+
+OR
+
+/* view URL in bottom of screen - courtesy Moonbase59 */
+a.external-link {
+position: relative;
+}
+
+a.external-link:before {
+position: fixed;
+left: 0;
+bottom: 0;
+padding: 0 0.5em;
+color: #ff82b2;
+background-color: var(--background-primary-alt);
+border: 1px solid var(--background-modifier-border);
+border-radius: 0 0.4em 0 0;
+font-family: var(--default-font);
+font-size: initial;
+font-style: initial;
+font-weight: initial;
+text-decoration: initial;
+display: none;
+z-index: 1000;
+content: attr(href);
+}
+
+a.external-link:hover:before {
+display: block;
+max-width: 98%;
+overflow: hidden;
+text-overflow: ellipsis;
+}
+
+.markdown-source-view.mod-cm6 .is-unresolved {
+opacity: 0.4;
+}
+.markdown-preview-view .internal-link.is-unresolved {
+opacity: 0.4;
+}
